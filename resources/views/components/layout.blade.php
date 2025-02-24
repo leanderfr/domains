@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Example Page</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HTML5 Example Page">
+  <link rel="stylesheet" href="/assets/css/stylesheet.css?v=1">
+</head>
+<body>
+  <header>
+    <h1>HTML5 Example Page</h1>
+  </header>
+
+  {{  $slot  }}
+
+</body>
+</html>
