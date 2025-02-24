@@ -29,13 +29,28 @@ class DatabaseSeeder extends Seeder
             'active' => true,
         ]);
 
+        Hosts::factory()->create([
+            'id' => 2,
+            'name' => 'Hostinger',
+            'active' => true,
+        ]);
+
+
 
         Domains::factory()->create([
-            'domain' => 'leanderdeveloper.store',
+            'domain' => 'https://leanderdeveloper.store/',
             'expiration_date' => Carbon::parse('2029-04-20'),
             'active' => true,
             'host_id' => 1,
         ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://buscacuritiba.com.br/',
+            'expiration_date' => Carbon::parse('2025-04-09'),
+            'active' => true,
+            'host_id' => 2,
+        ]);
+
 
     }
 }

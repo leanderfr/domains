@@ -12,9 +12,10 @@ class DomainController extends Controller
      */
     public function index()
     {
-        $domains = Domains::query()->orderBy('domain','asc')->get();
-        dd($domains); 
-        return view('domain.index');
+        //$domains = Domains::query()->orderBy('domain','asc')->get();
+        $domains = Domains::query()->orderBy('domain','asc')->paginate();
+        //dd($domains); 
+        return view('domains.index', ['domains' => $domains]);
     }
 
     /**
@@ -22,7 +23,7 @@ class DomainController extends Controller
      */
     public function create()
     {
-        return view('domain.create');
+        return view('domains.create');
     }
 
     /**
@@ -30,38 +31,57 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return view('domain.store');
+
+      $data = $request->validade([
+        'domain' => ['required', 'string']
+      ]);
+
+      $data['id']=3;
+      $domain = Domains::create($data);
+
+      return to_route('domains.show', $domain)->with('message', 'Dominio foi criado');
+
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(String $id)
+    public function show(Domains $domain)
     {
-        return view('domain.show');
+        return view('domains.show', ['domain' => $domain]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Domains $domains)
+    public function edit(Domains $domain)
     {
-        return view('domain.edit');
+        return view('domains.edit', $domain);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Domains $domains)
+    public function update(Request $request, Domains $domain)
     {
-        //
-    }
+
+        $data = $request->validade([
+          'domain' => ['required', 'string']
+        ]);
+
+        $domain->update($data);
+        return to_route('domains.show', $domain)->with('message', 'Dominio foi atualizado');
+    } 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Domains $domains)
+    public function destroy(Domains $domain)
     {
-        //
+        $domain->delete();
+        return to_route('domains.index', $domain)->with('message', 'Dominio foi excluído');
+
     }
 }

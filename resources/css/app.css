@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.linha {
+font-size:20px;
+
+color:red;
+}

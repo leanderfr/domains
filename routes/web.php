@@ -6,10 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/teste', [WelcomeController::class, 'welcome'])->name('welcome');
 
 /*
 Route::get('/domain', [DomainController::class, 'index'])->name('domain.index');
@@ -21,7 +20,7 @@ Route::patch('/domain/{id}', [DomainController::class, 'update'])->name('domain.
 */
 
 
-Route::resource('domain', DomainController::class);
+Route::resource('/domains', DomainController::class);
 
 
 
