@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         Domains::factory()->create([
             'domain' => 'leanderdeveloper.store',
-            'expiration_date' => Carbon::parse('2029-04-30'),
+            'expiration_date' => Carbon::parse('2029-04-20'),
             'active' => true,
             'host_id' => 1,
         ]);
