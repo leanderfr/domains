@@ -7,6 +7,7 @@ use App\Models\Domains;
 use App\Models\Hosts;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use DateTime;
 
 class DomainController extends Controller
 {
@@ -47,7 +48,9 @@ class DomainController extends Controller
           'host_id' => 'Identifique o local da hospedagem',
       ]);
             
-      $validated['expiration_date'] = Carbon::parse($request->expiration_date)->format('Y-m-d');
+      $date = DateTime::createFromFormat('d/m/Y', $validated['expiration_date']);
+      $validated['expiration_date'] = $date->format('Y-m-d');
+
       Domains::create($validated);
 
       return redirect()->route('domains.index');
@@ -62,9 +65,7 @@ class DomainController extends Controller
     public function show($id)
     {
         $domain = Domains::with('host')->findOrFail($id);
-        $hosts = Hosts::all();
-      //$domain = Domains::get($id);
-        return view('domains.show', ['domain' => $domain, 'hosts' => $hosts]);
+        return view('domains.show', ['domain' => $domain]);
     }
 
     //**********************************************************************************
@@ -95,7 +96,8 @@ class DomainController extends Controller
             'host_id' => 'Identifique o local da hospedagem',
         ]);
 
-        $validated['expiration_date'] = Carbon::parse($request->expiration_date)->format('Y-m-d');
+        $date = DateTime::createFromFormat('d/m/Y', $validated['expiration_date']);
+        $validated['expiration_date'] = $date->format('Y-m-d');
 
         Domains::where('id',$id)->update( $validated );
         return redirect()->route('domains.index');
