@@ -16,8 +16,19 @@
 
   <div class='flex flex-col '>
   
-    <div class='header'>
-      Cadastro de Domínios
+    <div class='header '>
+        <div class='flex flex-1 '>
+          <img src='https://leanderdeveloper.store/portal_busca_curitiba/logo_busca.png' style='height:50px;padding-top:0px;padding-left:15px'>
+        </div>
+
+        <div class='flex   justify-center flex-1'>
+          Cadastro de Domínios
+        </div>
+
+        <!-- 3a coluna, caso surja alguma ideia -->
+        <div class='flex justify-end pr-3 flex-1'>
+          &nbsp;leanderprogrammer@gmail.com
+        </div>
     </div>
 
 

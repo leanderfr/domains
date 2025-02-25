@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-@apply leading-[50px] bg-gray-300 mb-7 flex justify-center align-middle h-14 fixed w-full;
+@apply leading-[50px] bg-gray-300 mb-7 flex justify-between align-middle h-14 fixed w-full;
 }
 
 .dinamicContent {
