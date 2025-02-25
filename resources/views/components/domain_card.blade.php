@@ -1,4 +1,4 @@
-@props( ['active' => true, 'href', 'domain', 'expiration_date'] )
+@props( ['active' => true, 'href', 'domain', 'expiration_date', 'id'] )
 
 
 <div @class( ['domainCard', 'disabledDomain' => ! $active] ) onclick="window.location = '{{ $href }}'" >
@@ -17,17 +17,30 @@
 
     <!-- botoes editar, excluir, etc -->
     <div class='flex w-[200px] flex-row'>
-      <!-- bota editar -->
-      <div class='actionButton'>
-        <svg xmlns='http://www.w3.org/2000/svg' fill='navy' width='24px' height='24px' viewBox='0 0 24 24' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'></path></g></svg>
-      </div>
 
-      <!-- bota excluir -->
-      <div class='actionButton'>
-        <svg fill='red' width='24px' height='24px' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' class='icon' stroke='red'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z'></path> </g></svg>
-      </div>
+      <!-- botao editar -->
+      @if ($active)
+        <div class='actionButton'>
+          <a href="{{ route('domains.show', ['id' => $id]) }}">
+            <svg xmlns='http://www.w3.org/2000/svg' fill='navy' width='24px' height='24px' viewBox='0 0 24 24' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'></path></g></svg>
+          </a>
+        </div>
+      @else
+        <div class='noButton'>
+        </div>
+      @endif
 
-      <!-- bota ativar/desativar dominio -->
+      <!-- botao excluir -->
+      @if ($active)
+        <div class='actionButton'>
+          <svg fill='red' width='24px' height='24px' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' class='icon' stroke='red'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z'></path> </g></svg>
+        </div>
+      @else
+        <div class='noButton'>
+        </div>
+      @endif
+
+      <!-- botao ativar/desativar dominio -->
       @if (! $active)
         <!-- botao desativar dominio -->  
         <div class='actionButton'>
@@ -41,6 +54,9 @@
         </div> 
 
       @endif
+
+
+
     </div> 
 
 

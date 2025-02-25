@@ -27,3 +27,8 @@ body {
 .actionButton {
 @apply flex w-[25%] border-[1px] border-transparent hover:border-blue-700 h-[50px] justify-center rounded items-center ;
 }
+
+.noButton {
+@apply w-[25%] border-[1px] border-transparent;
+}
+

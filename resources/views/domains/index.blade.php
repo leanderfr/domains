@@ -49,6 +49,7 @@
         href="/domains/{{  $domain->id }}"  
         active="{{  $domain->active }}" 
         domain="{{ $domain->domain }}" 
+        id="{{ $domain->id }}" 
         expiration_date="{{ $domain->expiration_date }}" >
 
     </x-domain_card>

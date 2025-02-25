@@ -2,7 +2,7 @@
 </x-layout>
 
 
-<div>
-    <h1>show ==> {{ $domain-> created_at }} </h1>
+<div class='mt-40'>
+    <h1>show ==> {{ $domain-> id }} </h1>
 </div>
 
