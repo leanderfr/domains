@@ -87,8 +87,17 @@
 
   </div>
 
-
-
 </div>
 
 </form>
+
+
+<script>
+// mascara da data e coloca foto no 1o campo 
+
+$("#expiration_date").mask("99/99/9999");
+
+setTimeout(() => {
+  $("#domain").focus();
+}, 300);
+</script>
