@@ -4,6 +4,9 @@
 <div @class( ['domainCard', 'disabledDomain' => ! $active] ) onclick="window.location = '{{ $href }}'" >
   
     <div class='flex w-[calc(50%-200px)]'>
+      <div class='flex text-gray-300 flex-row pr-3'>
+        [<div class='w-[30px] text-right pr-1'>{{ $id  }}</div>]
+      </div>
       {{ $domain  }}
     </div> 
 

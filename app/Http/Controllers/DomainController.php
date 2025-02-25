@@ -108,10 +108,11 @@ class DomainController extends Controller
     // delete de dominio 
     //**********************************************************************************  
     
-    public function destroy(Domains $domain)
+    public function destroy($id)
     {
+        $domain = Domains::with('host')->findOrFail($id);
         $domain->delete();
-        return to_route('domains.index', $domain)->with('message', 'Dominio foi excluído');
 
+        return redirect()->route('domains.index');
     }
 }
