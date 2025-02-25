@@ -1,4 +1,6 @@
 <x-layout>
 </x-layout>
 
-<a href="{{  route('domains.index') }}" >Clique aqui para acessar o cadastro de domínios</a>
+<div class='mt-20 pl-10 hover:bg-yellow-300 leading-10 cursor-pointer' onclick="window.open('{{  route('domains.index') }}', '_self')"  >
+  Clique aqui para acessar a lista de domínios
+</div>

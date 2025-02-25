@@ -1,23 +1,19 @@
 <x-layout>
-
 </x-layout>
 
-<div>
+<div class='leading-[50px] mt-12 fixed bg-white w-full border-b-[1px] border-gray-400 text-center text-gray-600'>Lista geral</div>
 
-<h4>Lista geral</h4>
+<div class='dinamicContent'>
 
-<br>
-<br>
-<br>
-<br>
-    @foreach ($domains as $domain)
-      <div class='linha'>
 
-      <x-card href="/domains/{{  $domain->id }}">
-        <h3>aqui={{  $domain->domain  }}</h3>
-      </x-card>
-      
-    @endforeach
-</div>
+
+  @foreach ($domains as $domain)
+
+    <x-domain_card href="/domains/{{  $domain->id }}"  active="{{  $domain->active }}" domain="{{ $domain->domain }}"  >
+    </x-domain_card>
+
+    
+  @endforeach
+
 </div>
 

@@ -2,9 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Rubik';
+  margin: 0px;
+  font-size: 18px;
+}
 
-.linha {
-font-size:20px;
+.domainCard {
+@apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center w-full cursor-pointer;
+}
 
-color:red;
+.disabledDomain {
+@apply text-red-600;
+}
+
+.header {
+@apply leading-[50px] bg-gray-300 mb-7 flex justify-center align-middle h-14 fixed w-full;
+}
+
+.dinamicContent {
+@apply flex  flex-1 w-full flex-col overflow-y-auto mt-[101px] bg-red-200 h-full ;  
 }

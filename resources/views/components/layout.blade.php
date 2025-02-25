@@ -12,11 +12,18 @@
 </head>
 <body>
   <header>
-    <h1 style='line-height:40px;background-color:#f2f2f2;margin-bottom:20px;text-align:center' >Cadastro de Domínios</h1>
-
   </header>
 
-  {{  $slot  }}
+  <div class='flex flex-col '>
+  
+    <div class='header'>
+      Cadastro de Domínios
+    </div>
+
+    {{  $slot  }}
+
+  </div>
+
 
 </body>
 </html>
