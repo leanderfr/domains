@@ -35,6 +35,24 @@ class DatabaseSeeder extends Seeder
             'active' => true,
         ]);
 
+        Hosts::factory()->create([
+            'id' => 3,
+            'name' => 'Google Inc.',
+            'active' => true,
+        ]);
+
+        Hosts::factory()->create([
+            'id' => 4,
+            'name' => 'Host Gator',
+            'active' => true,
+        ]);
+
+        Hosts::factory()->create([
+            'id' => 5,
+            'name' => 'SiteGround.com',
+            'active' => true,
+        ]);
+
 
 
         Domains::factory()->create([
@@ -46,10 +64,44 @@ class DatabaseSeeder extends Seeder
 
         Domains::factory()->create([
             'domain' => 'https://buscacuritiba.com.br/',
-            'expiration_date' => Carbon::parse('2025-04-09'),
+            'expiration_date' => Carbon::parse('2026-09-15'),
             'active' => true,
             'host_id' => 2,
         ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://www.youtube.com/',
+            'expiration_date' => Carbon::parse('2035-03-10'),
+            'active' => true,
+            'host_id' => 3,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://globo.com/',
+            'expiration_date' => Carbon::parse('2030-06-12'),
+            'active' => true,
+            'host_id' => 5,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://facebook.com/',
+            'expiration_date' => Carbon::parse('2032-02-30'),
+            'active' => true,
+            'host_id' => 4,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://caixa.gov.br/',
+            'expiration_date' => Carbon::parse('2028-08-21'),
+            'active' => true,
+            'host_id' => 2,
+        ]);
+
+
+
+
+
+
 
 
     }

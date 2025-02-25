@@ -9,7 +9,7 @@ body {
 }
 
 .domainCard {
-@apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center w-full cursor-pointer;
+@apply bg-white rounded border-b-[1px] border-b-gray-200 px-3 py-3  flex justify-between items-center w-full cursor-pointer hover:bg-gray-200;
 }
 
 .disabledDomain {
@@ -21,5 +21,5 @@ body {
 }
 
 .dinamicContent {
-@apply flex  flex-1 w-full flex-col overflow-y-auto mt-[101px] bg-red-200 h-full ;  
+@apply flex  flex-1 w-full flex-col overflow-y-auto mt-[140px] h-full ;  
 }

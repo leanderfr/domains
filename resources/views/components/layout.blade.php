@@ -20,6 +20,7 @@
       Cadastro de Domínios
     </div>
 
+
     {{  $slot  }}
 
   </div>
