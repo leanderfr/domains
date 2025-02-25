@@ -47,7 +47,7 @@
 
     <x-domain_item
 
-        href="/domains/{{ $domain->id }}"  
+        href="{{  route('domains.edit',  ['id' => $domain->id]) }}"  
         active="{{  $domain->active }}" 
         domain="{{ $domain->domain }}" 
         id="{{ $domain->id }}" 
