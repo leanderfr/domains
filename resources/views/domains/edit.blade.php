@@ -1,12 +1,16 @@
 <x-layout>
 </x-layout>
 
-<div class='leading-[30px] mt-14 fixed bg-white w-full border-b-[1px] border-gray-400 text-center text-gray-600 flex flex-col z-50'>
+<form method="{{ route('domains.store') }}" action='' >
+
+<!-- impede insercao de terceiros -->
+@csrf
+
+<div class='leading-[30px] mt-14 fixed bg-white w-full  text-center text-gray-600 flex flex-col z-50 '>
 
   <!-- barra de botoes -->
-  <div class='flex flex-row  justify-between pr-3 '>
+  <div class='flex flex-row justify-between pr-3 border-b-[1px] border-gray-400 '>
 
-    <!-- botao cancelar edicao -->
     <div class='flex items-center'>
     &nbsp;&nbsp;&nbsp;Editar domínio
     </div>
@@ -27,7 +31,37 @@
         </div>
     </div>
 
+  </div>
+
+  <!-- formulario de dominio -->
+  <div class='flex flex-col w-full bg-gray-100 h-screen'>
+
+    <div class='flex flex-col w-[80%] pl-[10%] pt-[40px] bg-gray-100 flex-1 '>
+
+        <div class='flex flex-row pb-3'>
+          Domínio:
+        </div>
+
+        <div class='flex flex-row pb-12'>
+          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off">
+        </div>
+
+
+        <div class='flex flex-row '>
+          <select id='host_id' name='host_id' required class='w-full cursor-pointer h-9'>
+            <option value=''  disabled selected>Selecione o local de hospedagem</option>
+
+            @foreach ($hosts as $host)
+              <option value="{{ $host->id }}" >{{ $host->name }}</option>              
+            @endforeach
+          </select>
+        </div>
+
+      </div>
 
   </div>
 
 
+</div>
+
+</form>

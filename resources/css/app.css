@@ -6,10 +6,11 @@ body {
   font-family: 'Rubik';
   margin: 0px;
   font-size: 18px;
+  overflow-y: scroll;
 }
 
 .domainCard {
-@apply leading-[50px] bg-white rounded border-b-[1px] border-b-gray-200 px-3  flex justify-between items-center w-full cursor-pointer hover:bg-gray-200;
+@apply leading-[50px] bg-white rounded border-b-[1px] border-b-gray-200 px-3  flex justify-between items-center w-full cursor-pointer hover:bg-[#ffe0b3];
 }
 
 .disabledDomain {
@@ -17,7 +18,7 @@ body {
 }
 
 .header {
-@apply leading-[50px] bg-gray-300 mb-7 flex justify-between align-middle h-14 fixed w-full;
+@apply leading-[50px] bg-gray-200 mb-7 flex justify-between align-middle h-14 fixed w-full border-y-[1px] border-gray-400;
 }
 
 .dinamicContent {

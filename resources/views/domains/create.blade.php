@@ -6,7 +6,6 @@
   <!-- barra de botoes -->
   <div class='flex flex-row  justify-between pr-3 '>
 
-    <!-- botao cancelar edicao -->
     <div class='flex items-center'>
     &nbsp;&nbsp;&nbsp;Novo domínio
     </div>

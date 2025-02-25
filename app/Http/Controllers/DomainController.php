@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Domains;
+use App\Models\Hosts;
 use Illuminate\Http\Request;
 
 class DomainController extends Controller
@@ -13,7 +14,7 @@ class DomainController extends Controller
     //**********************************************************************************  
     public function index()
     {
-        $domains = Domains::with('host')->orderBy('domain','asc')->get();
+        $domains = Domains::with('host')->orderBy('updated_at','desc')->get();
         //$domains = Domains::query()->orderBy('domain','asc')->paginate();
         //dd($domains); 
         return view('domains.index', ['domains' => $domains]);
@@ -32,17 +33,14 @@ class DomainController extends Controller
     //**********************************************************************************  
     public function store(Request $request)
     {
-        //return view('domain.store');
-
-      $data = $request->validade([
-        'domain' => ['required', 'string']
+      $validated = $request->validate([
+        'domain' => 'required|string|min:5|max:150',
+        'host_id' => 'required|exists:hosts,id',
       ]);
 
-      $data['id']=3;
-      $domain = Domains::create($data);
+      Domains::create($validated);
 
-      return to_route('domains.show', $domain)->with('message', 'Dominio foi criado');
-
+      return redirect()->route('domains.index');
 
     }
 
@@ -64,7 +62,8 @@ class DomainController extends Controller
 
     public function edit(Domains $domain)
     {
-        return view('domains.edit', $domain);
+        $hosts = Hosts::all();
+        return view('domains.edit', ['domain' => $domain, 'hosts' => $hosts]);
     }
 
     //**********************************************************************************
