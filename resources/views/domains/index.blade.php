@@ -14,6 +14,7 @@
     </div>
   </div>
 
+  <!-- datatable de dominios -->
   <div class='flex flex-row mb-2'>
       <div class='flex w-[calc(50%-200px)]'>
         &nbsp;&nbsp;Domínio

@@ -3,6 +3,6 @@
 
 
 <div class='mt-40'>
-    <h1>show ==> {{ $domain-> id }} </h1>
+    <h1>show ==> {{ $domain->host->name }} -  {{ $domain->domain }} </h1>
 </div>
 
