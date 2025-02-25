@@ -33,7 +33,7 @@
 
   </div>
 
-  <!-- formulario de dominio -->
+  <!-- campos do formulario de dominio -->
   <div class='flex flex-col w-full bg-gray-100 h-screen'>
 
     <div class='flex flex-col w-[80%] pl-[10%] pt-[40px] bg-gray-100 flex-1 '>
@@ -42,17 +42,17 @@
           Domínio:
         </div>
 
-        <div class='flex flex-row pb-12'>
-          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off">
+        <div class='flex flex-row pb-6'>
+          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off" value="{{ old('domain') }}" >
         </div>
 
 
-        <div class='flex flex-row pb-12'>
+        <div class='flex flex-row pb-6'>
           <select id='host_id' name='host_id' required class='w-full cursor-pointer h-9'>
             <option value=''  disabled selected>Selecione o local de hospedagem</option>
 
             @foreach ($hosts as $host)
-              <option value="{{ $host->id }}" >{{ $host->name }}</option>              
+              <option value="{{ $host->id }}" {{ $domain->host_id == old('host_id') ? 'selected' : ''}} >{{ $host->name }}</option>              
             @endforeach
           </select>
         </div>
@@ -63,13 +63,28 @@
 
         <div class='flex flex-row '>
           <input type='text' id='expiration_date' name='expiration_date' class='w-full px-2' 
-              autocomplete="off" placeholder='dd/mm/yyyy' maxlength='10'>
+              autocomplete="off" placeholder='dd/mm/yyyy' maxlength='10'  value="{{ old('expiration_date') }}" >
         </div>
+
+        <!-- exibe eventuais erros -->
+        @if ($errors->any())
+            <ul class="px-4 py-2 bg-red-100 mt-5">
+
+              @foreach ($errors->all() as $error)
+                <li class='my-2 text-red-500'>
+                  {{$error}}
+                </li>
+              @endforeach
+
+            </ul>
+        @endif
+
 
 
       </div>
 
   </div>
+
 
 
 </div>

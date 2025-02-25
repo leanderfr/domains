@@ -39,9 +39,15 @@ class DomainController extends Controller
       $validated = $request->validate([
         'domain' => 'required|string|min:5|max:150',
         'host_id' => 'required|exists:hosts,id',
-        'expiration_date'  =>  'required|date|date_format:"d/m/Y"',
+        'expiration_date'  =>  'required|date_format:d/m/Y',
+      ], 
+        [
+          'expiration_date' => 'Data inválida',
+          'domain' => 'Domínio deve ter entre 5 e 150 caracteres',
+          'host_id' => 'Identifique o local da hospedagem',
       ]);
-
+            
+      $validated['expiration_date'] = Carbon::parse($request->expiration_date)->format('Y-m-d');
       Domains::create($validated);
 
       return redirect()->route('domains.index');
@@ -75,19 +81,23 @@ class DomainController extends Controller
     //**********************************************************************************
     // patch/put de dominio 
     //**********************************************************************************  
-    public function update(Request $request, Domains $domain)
+    public function update(Request $request, String $id)
     {
 
         $validated = $request->validate([
           'domain' => 'required|string|min:5|max:150',
           'host_id' => 'required|exists:hosts,id',
-          'expiration_date'  =>  'required|date|date_format:"d/m/Y"',
+          'expiration_date'  =>  'required|date_format:d/m/Y',
+        ], 
+          [
+            'expiration_date' => 'Data inválida',
+            'domain' => 'Domínio deve ter entre 5 e 150 caracteres',
+            'host_id' => 'Identifique o local da hospedagem',
         ]);
-
 
         $validated['expiration_date'] = Carbon::parse($request->expiration_date)->format('Y-m-d');
 
-        $domain->update($validated);
+        Domains::where('id',$id)->update( $validated );
         return redirect()->route('domains.index');
     } 
 
