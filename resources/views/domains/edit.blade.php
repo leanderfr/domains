@@ -13,7 +13,7 @@
   <div class='flex flex-row justify-between pr-3 border-b-[1px] border-gray-400 '>
 
     <div class='flex items-center'>
-    &nbsp;&nbsp;&nbsp;<span class='text-red-400 bold text-2xl'>Editando</span>&nbsp;<span class='pt-[3px]'>&nbsp;&nbsp;domínio - Id: {{ $domain->id }}</span>
+    &nbsp;&nbsp;&nbsp;<span class='text-blue-400 bold text-2xl'>Editando</span>&nbsp;<span class='pt-[3px]'>&nbsp;&nbsp;Domínio - Id: {{ $domain->id }}</span>
     </div>
 
     <div class='flex flex-row flex-1 justify-end gap-10'>

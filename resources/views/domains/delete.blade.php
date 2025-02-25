@@ -1,20 +1,25 @@
 <x-layout>
 </x-layout>
 
+<form method='post' action="{{ route('domains.destroy', ['id' => $domain->id]) }}"  id='formDestroyDomain' >
+@csrf
+@method('DELETE')
+
+
 <div class='leading-[30px] mt-14 fixed bg-white w-full  text-center text-gray-600 flex flex-col z-50 '>
 
   <!-- barra de botoes -->
   <div class='flex flex-row justify-between pr-3 border-b-[1px] border-gray-400 '>
 
     <div class='flex items-center'>
-    &nbsp;&nbsp;&nbsp;<span class='text-cyan-600 bold text-2xl'>Visualizando</span>&nbsp;<span class='pt-[3px]'>&nbsp;&nbsp;domínio - Id: {{ $domain->id }}</span>
+    &nbsp;&nbsp;&nbsp;<span class='text-red-600 bold text-2xl'>Confirmar Exclusão</span>&nbsp;<span class='pt-[3px]'>&nbsp;&nbsp;Domínio - Id: {{ $domain->id }}</span>
     </div>
 
     <div class='flex flex-row flex-1 justify-end gap-10'>
         <!-- botao salvar dominio -->
         <div class='flex w-[120px] h-[50px] border-transparent border-2 hover:border-blue-500 cursor-pointer justify-center rounded-lg'
-           onclick=" document.getElementById('formEditDomain').submit(); ">
-              <svg height="44px" width="44px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="navy"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:navy;} </style> <g> <polygon class="st0" points="440.469,73.413 218.357,295.525 71.531,148.709 0,220.229 146.826,367.055 218.357,438.587 289.878,367.055 512,144.945 "></polygon> </g> </g></svg>
+           onclick=" document.getElementById('formDestroyDomain').submit(); ">
+              <svg width="44px" height="44px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="red"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 14L11 16L15 12M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6M4 6H20M18 6V16.2C18 17.8802 18 18.7202 17.673 19.362C17.3854 19.9265 16.9265 20.3854 16.362 20.673C15.7202 21 14.8802 21 13.2 21H10.8C9.11984 21 8.27976 21 7.63803 20.673C7.07354 20.3854 6.6146 19.9265 6.32698 19.362C6 18.7202 6 17.8802 6 16.2V6" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
           </a>
         </div>
 

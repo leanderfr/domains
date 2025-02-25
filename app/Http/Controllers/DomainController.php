@@ -58,15 +58,16 @@ class DomainController extends Controller
     }
 
     //**********************************************************************************
-    // exibe form de dominio (read only)
-    // ** nao sera usado ***
+    // exibe form de dominio para eventual exclusao do registro
     //**********************************************************************************  
 
-    public function show($id)
+    public function delete(String $id)
     {
         $domain = Domains::with('host')->findOrFail($id);
-        return view('domains.show', ['domain' => $domain]);
+        $hosts = Hosts::all();
+        return view('domains.delete', ['domain' => $domain, 'hosts' => $hosts]);
     }
+
 
     //**********************************************************************************
     // exibe form de dominio (permite edicao)
