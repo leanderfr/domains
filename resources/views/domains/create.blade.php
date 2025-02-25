@@ -1,13 +1,18 @@
 <x-layout>
 </x-layout>
 
-<div class='leading-[30px] mt-14 fixed bg-white w-full border-b-[1px] border-gray-400 text-center text-gray-600 flex flex-col z-50'>
+<form method='post' action="{{ route('domains.store') }}"  id='formAddDomain' >
+
+<!-- impede insercao de terceiros -->
+@csrf
+
+<div class='leading-[30px] mt-14 fixed bg-white w-full  text-center text-gray-600 flex flex-col z-50 '>
 
   <!-- barra de botoes -->
-  <div class='flex flex-row  justify-between pr-3 '>
+  <div class='flex flex-row justify-between pr-3 border-b-[1px] border-gray-400 '>
 
     <div class='flex items-center'>
-    &nbsp;&nbsp;&nbsp;Novo domínio
+    &nbsp;&nbsp;&nbsp;Editar domínio
     </div>
 
     <div class='flex flex-row flex-1 justify-end gap-10'>
@@ -19,14 +24,54 @@
         </div>
 
         <!-- botao salvar dominio -->
-        <div class='flex w-[120px] h-[50px] border-transparent border-2 hover:border-blue-500 cursor-pointer justify-center rounded-lg'>
-          <a href="{{ route('domains.index') }}">
+        <div class='flex w-[120px] h-[50px] border-transparent border-2 hover:border-blue-500 cursor-pointer justify-center rounded-lg'
+           onclick=" document.getElementById('formAddDomain').submit(); ">
               <svg height="44px" width="44px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="navy"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:navy;} </style> <g> <polygon class="st0" points="440.469,73.413 218.357,295.525 71.531,148.709 0,220.229 146.826,367.055 218.357,438.587 289.878,367.055 512,144.945 "></polygon> </g> </g></svg>
           </a>
         </div>
     </div>
 
+  </div>
+
+  <!-- formulario de dominio -->
+  <div class='flex flex-col w-full bg-gray-100 h-screen'>
+
+    <div class='flex flex-col w-[80%] pl-[10%] pt-[40px] bg-gray-100 flex-1 '>
+
+        <div class='flex flex-row pb-3'>
+          Domínio:
+        </div>
+
+        <div class='flex flex-row pb-12'>
+          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off">
+        </div>
+
+
+        <div class='flex flex-row pb-12'>
+          <select id='host_id' name='host_id' required class='w-full cursor-pointer h-9'>
+            <option value=''  disabled selected>Selecione o local de hospedagem</option>
+
+            @foreach ($hosts as $host)
+              <option value="{{ $host->id }}" >{{ $host->name }}</option>              
+            @endforeach
+          </select>
+        </div>
+
+        <div class='flex flex-row pb-3'>
+          Data expiração:
+        </div>
+
+        <div class='flex flex-row '>
+          <input type='text' id='expiration_date' name='expiration_date' class='w-full px-2' 
+              autocomplete="off" placeholder='dd/mm/yyyy' maxlength='10'>
+        </div>
+
+
+      </div>
 
   </div>
 
 
+</div>
+
+</form>

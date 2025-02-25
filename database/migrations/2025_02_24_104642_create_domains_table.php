@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('domain', length: 150);          
             $table->date('expiration_date');
             $table->foreignId('host_id')->constrained('hosts')->onDelete('cascade');
-            $table->boolean('active');
+            $table->boolean('active')->default(true);
         });
     }
 

@@ -52,7 +52,7 @@
         domain="{{ $domain->domain }}" 
         id="{{ $domain->id }}" 
         host="{{ $domain->host->name  }}"
-        expiration_date="{{ $domain->expiration_date }}" >
+        expiration_date="{{ date( 'd/m/Y' , strtotime($domain->expiration_date))}}" >
 
     </x-domain_item>
 

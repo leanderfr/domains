@@ -1,7 +1,7 @@
 <x-layout>
 </x-layout>
 
-<form method="{{ route('domains.store') }}" action='' >
+<form method='patch' action="{{ route('domains.update', ['id' => $domain->id]) }}"  id='formEditDomain' >
 
 <!-- impede insercao de terceiros -->
 @csrf
@@ -12,7 +12,7 @@
   <div class='flex flex-row justify-between pr-3 border-b-[1px] border-gray-400 '>
 
     <div class='flex items-center'>
-    &nbsp;&nbsp;&nbsp;Editar domínio
+    &nbsp;&nbsp;&nbsp;Editar domínio  - Id: {{ $domain->id }}
     </div>
 
     <div class='flex flex-row flex-1 justify-end gap-10'>
@@ -24,8 +24,8 @@
         </div>
 
         <!-- botao salvar dominio -->
-        <div class='flex w-[120px] h-[50px] border-transparent border-2 hover:border-blue-500 cursor-pointer justify-center rounded-lg'>
-          <a href="{{ route('domains.index') }}">
+        <div class='flex w-[120px] h-[50px] border-transparent border-2 hover:border-blue-500 cursor-pointer justify-center rounded-lg'
+           onclick=" document.getElementById('formEditDomain').submit(); ">
               <svg height="44px" width="44px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="navy"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:navy;} </style> <g> <polygon class="st0" points="440.469,73.413 218.357,295.525 71.531,148.709 0,220.229 146.826,367.055 218.357,438.587 289.878,367.055 512,144.945 "></polygon> </g> </g></svg>
           </a>
         </div>
@@ -43,19 +43,35 @@
         </div>
 
         <div class='flex flex-row pb-12'>
-          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off">
+          <input type='text' id='domain' name='domain' class='w-full px-2' autocomplete="off" value="{{ $domain->domain }}" >
         </div>
 
 
-        <div class='flex flex-row '>
+        <div class='flex flex-row pb-12'>
           <select id='host_id' name='host_id' required class='w-full cursor-pointer h-9'>
             <option value=''  disabled selected>Selecione o local de hospedagem</option>
 
             @foreach ($hosts as $host)
-              <option value="{{ $host->id }}" >{{ $host->name }}</option>              
+              @if ( $host->id == $domain->host_id )
+                <option value="{{ $host->id }}" selected>{{ $host->name }}</option>              
+
+              @else 
+                <option value="{{ $host->id }}" >{{ $host->name }}</option>              
+
+              @endif
             @endforeach
           </select>
         </div>
+
+        <div class='flex flex-row pb-3'>
+          Data expiração:
+        </div>
+
+        <div class='flex flex-row '>
+          <input type='text' id='expiration_date' name='expiration_date' class='w-full px-2' 
+              autocomplete="off" placeholder='dd/mm/yyyy' maxlength='10' value="{{ date( 'd/m/Y' , strtotime($domain->expiration_date))}}">
+        </div>
+
 
       </div>
 
