@@ -48,7 +48,7 @@ class DomainController extends Controller
 
     //**********************************************************************************
     // exibe form de dominio (read only)
-    // ** nao sera usado
+    // ** nao sera usado ***
     //**********************************************************************************  
 
     public function show($id)
