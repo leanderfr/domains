@@ -8,7 +8,7 @@
   <meta name="description" content="Cadastro de Domínios">
   <meta name="author" content="Leander Fruchting">
   <link rel="stylesheet" href="/assets/css/stylesheet.css?v=1">
-  @vite(['public/build/assets/app-DkahNSte.css'])
+  @vite(['resources/css/app.css'])
 
 </head>
 <body>
