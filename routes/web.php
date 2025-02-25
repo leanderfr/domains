@@ -1,8 +1,15 @@
 <?php
 
 use App\Http\Controllers\DomainController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
+
+
+if (App::environment('remote')) {
+    URL::forceSchema('https');
+}
 
 // pagina de apresentacao, permite escolher entre dominios / hosts
 Route::get('/', function () {
