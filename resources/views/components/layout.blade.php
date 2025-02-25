@@ -9,7 +9,7 @@
   <meta name="author" content="Leander Fruchting">
   <link rel="stylesheet" href="/assets/css/stylesheet.css?v=1">
 
-  <link rel="stylesheet" href="{{ asset('build/assets/app-DkahNSte.css') }}">
+  <link rel="stylesheet" href="https://leanderdeveloper.store/portal_busca_curitiba/app-DkahNSte.css">
 
 
 </head>
