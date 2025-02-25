@@ -1,7 +1,7 @@
 <x-layout>
 </x-layout>
 
-<div class='leading-[30px] mt-12 fixed bg-white w-full border-b-[1px] border-gray-400 text-center text-gray-600 flex flex-col'>
+<div class='leading-[30px] mt-14 fixed bg-white w-full border-b-[1px] border-gray-400 text-center text-gray-600 flex flex-col'>
 
   <!-- barra de botoes -->
   <div class='flex flex-row  justify-end pr-3 '>

@@ -18,7 +18,9 @@
   
     <div class='header '>
         <div class='flex flex-1 '>
-          <img src='https://leanderdeveloper.store/portal_busca_curitiba/logo_busca.png' style='height:50px;padding-top:0px;padding-left:15px'>
+          <a href="{{ route('home') }}" class='border-2 border-transparent hover:border-gray-700 rounded-lg'>  
+            <img src='https://leanderdeveloper.store/portal_busca_curitiba/logo_busca.png' style='height:50px;padding-top:0px;padding-left:35px;padding-right:35px'>
+          </a>
         </div>
 
         <div class='flex   justify-center flex-1'>
@@ -27,7 +29,7 @@
 
         <!-- 3a coluna, caso surja alguma ideia -->
         <div class='flex justify-end pr-3 flex-1'>
-          &nbsp;leanderprogrammer@gmail.com
+          <a href="mailto:leanderprogrammer@gmail.com">&nbsp;leanderprogrammer@gmail.com</a>          
         </div>
     </div>
 
