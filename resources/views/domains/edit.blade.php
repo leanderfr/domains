@@ -98,3 +98,12 @@
 </div>
 
 </form>
+
+<script>
+$("#expiration_date").mask("99/99/9999");
+
+setTimeout(() => {
+  $("#domain").focus();
+}, 300);
+
+</script>

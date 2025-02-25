@@ -8,6 +8,8 @@
   <meta name="description" content="Cadastro de Domínios">
   <meta name="author" content="Leander Fruchting">
   <link rel="stylesheet" href="/assets/css/stylesheet.css?v=1">
+  <script src="https://leanderdeveloper.store/portal_busca_curitiba/jquery.js"></script>
+  <script src="https://leanderdeveloper.store/portal_busca_curitiba/mask_plugin.js"></script>
 
   <link rel="stylesheet" href="https://leanderdeveloper.store/portal_busca_curitiba/app-DkahNSte.css">
 
