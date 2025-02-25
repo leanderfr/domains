@@ -46,10 +46,11 @@
 
     <x-domain_card 
 
-        href="/domains/{{  $domain->id }}"  
+        href="/domains/{{ $domain->id }}"  
         active="{{  $domain->active }}" 
         domain="{{ $domain->domain }}" 
         id="{{ $domain->id }}" 
+        host="{{ $domain->host->name  }}"
         expiration_date="{{ $domain->expiration_date }}" >
 
     </x-domain_card>

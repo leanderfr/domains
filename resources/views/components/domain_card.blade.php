@@ -1,4 +1,4 @@
-@props( ['active' => true, 'href', 'domain', 'expiration_date', 'id'] )
+@props( ['active' => true, 'href', 'domain', 'expiration_date', 'id', 'host'] )
 
 
 <div @class( ['domainCard', 'disabledDomain' => ! $active] ) onclick="window.location = '{{ $href }}'" >
@@ -12,7 +12,7 @@
     </div> 
 
     <div class='flex w-[25%]'>
-      kinghost.net
+      {{  $host }}
     </div> 
 
     <!-- botoes editar, excluir, etc -->

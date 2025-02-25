@@ -39,6 +39,7 @@ class DomainController extends Controller
     public function show($id)
     {
         $domain = Domains::findOrFail($id);
+      //$domain = Domains::get($id);
         return view('domains.show', ['domain' => $domain]);
     }
 
