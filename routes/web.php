@@ -10,17 +10,17 @@ Route::get('/', function () {
 })->name('home');
 
 
-/*
-Route::get('/domain', [DomainController::class, 'index'])->name('domain.index');
-Route::get('/domain/create', [DomainController::class, 'create'])->name('domain.create');
-Route::post('/domain', [DomainController::class, 'store'])->name('domain.store');
-Route::get('/domain/{id}', [DomainController::class, 'show'])->name('domain.show');
-Route::get('/domain/{id}/edit', [DomainController::class, 'edit'])->name('domain.edit');
-Route::patch('/domain/{id}', [DomainController::class, 'update'])->name('domain.update');
-*/
+
+Route::get('/domains', [DomainController::class, 'index'])->name('domains.index');
+Route::get('/domains/create', [DomainController::class, 'create'])->name('domains.create');
+Route::post('/domains', [DomainController::class, 'store'])->name('domains.store');
+Route::get('/domains/{id}', [DomainController::class, 'show'])->name('domains.show');
+Route::get('/domains/{id}/edit', [DomainController::class, 'edit'])->name('domains.edit');
+Route::patch('/domains/{id}', [DomainController::class, 'update'])->name('domains.update');
 
 
-Route::resource('/domains', DomainController::class);
+
+//Route::resource('/domains', DomainController::class);
 
 
 

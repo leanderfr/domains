@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         Domains::factory()->create([
             'domain' => 'https://buscacuritiba.com.br/',
             'expiration_date' => Carbon::parse('2026-09-15'),
-            'active' => true,
+            'active' => false,
             'host_id' => 2,
         ]);
 
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
         Domains::factory()->create([
             'domain' => 'https://globo.com/',
             'expiration_date' => Carbon::parse('2030-06-12'),
-            'active' => true,
+            'active' => false,
             'host_id' => 5,
         ]);
 
@@ -96,6 +96,42 @@ class DatabaseSeeder extends Seeder
             'active' => true,
             'host_id' => 2,
         ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://gazetadopovo.com.br/',
+            'expiration_date' => Carbon::parse('2028-11-16'),
+            'active' => true,
+            'host_id' => 5,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://twitter.com/',
+            'expiration_date' => Carbon::parse('2031-07-23'),
+            'active' => false,
+            'host_id' => 3,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://wikipedia.org/',
+            'expiration_date' => Carbon::parse('2027-01-10'),
+            'active' => false,
+            'host_id' => 2,
+        ]);
+
+        Domains::factory()->create([
+            'domain' => 'https://amazon.com.br/',
+            'expiration_date' => Carbon::parse('2025-12-14'),
+            'active' => false,
+            'host_id' => 4,
+        ]);
+
+
+
+
+
+
+
+
 
 
 

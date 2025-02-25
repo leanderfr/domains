@@ -9,7 +9,7 @@ body {
 }
 
 .domainCard {
-@apply bg-white rounded border-b-[1px] border-b-gray-200 px-3 py-3  flex justify-between items-center w-full cursor-pointer hover:bg-gray-200;
+@apply leading-[50px] bg-white rounded border-b-[1px] border-b-gray-200 px-3  flex justify-between items-center w-full cursor-pointer hover:bg-gray-200;
 }
 
 .disabledDomain {
@@ -22,4 +22,8 @@ body {
 
 .dinamicContent {
 @apply flex  flex-1 w-full flex-col overflow-y-auto mt-[145px] h-full ;  
+}
+
+.actionButton {
+@apply flex w-[25%] border-[1px] border-transparent hover:border-blue-700 h-[50px] justify-center rounded items-center ;
 }
