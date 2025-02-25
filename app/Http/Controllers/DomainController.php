@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Domains;
 use App\Models\Hosts;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DateTime;
+
 
 class DomainController extends Controller
 {
@@ -105,9 +107,8 @@ class DomainController extends Controller
     } 
 
     //**********************************************************************************
-    // delete de dominio 
-    //**********************************************************************************  
-    
+    // exclui dominio 
+    //**********************************************************************************      
     public function destroy($id)
     {
         $domain = Domains::with('host')->findOrFail($id);
@@ -115,4 +116,20 @@ class DomainController extends Controller
 
         return redirect()->route('domains.index');
     }
+
+    //**********************************************************************************
+    // desativa/ativo determinado dominio 
+    //**********************************************************************************      
+    public function status($id)
+    {
+        //Domains::Where('id', $id)->update( ['active' => false] ) ;
+
+        DB::statement("UPDATE domains set active = ! active where id = $id");
+        return redirect()->route('domains.index');
+    }
+
+
+
+
+
 }

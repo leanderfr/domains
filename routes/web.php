@@ -21,6 +21,8 @@ Route::post('/domains', [DomainController::class, 'store'])->name('domains.store
 Route::patch('/domains/{id}', [DomainController::class, 'update'])->name('domains.update');
 Route::delete('/domains/{id}', [DomainController::class, 'destroy'])->name('domains.destroy');
 
+Route::get('/domains/{id}/status', [DomainController::class, 'status'])->name('domains.status');
+
 
 
 
